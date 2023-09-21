@@ -1,0 +1,245 @@
+h2{
+    color:rgb(3, 54, 61);
+}
+.left_tab {
+    background: #f1f1f1;
+    height: 100vh;
+    padding: 18px;
+}
+.left_tab .nav-pills {
+    width: 100%;
+}
+.left_tab .nav-pills .nav-link.active {
+    background: #03363d;
+    color: #ffffff;
+}
+
+.left_tab .nav-pills .nav-link {
+    padding: 6px 15px;
+    font-size: 14px;
+    color: #03363d;
+}
+.right_tab {
+    padding: 15px;
+}
+.content_area .paragraph p {
+    margin: 0px;
+    font-size: 16px;
+}
+.parent_all {
+    margin-top: 30px;
+}
+.parent_all label {
+    font-size: 14px;
+    font-weight: 500;
+}
+.parent_all .form-control {
+    font-size: 14px;
+    font-weight: 400;
+}
+.content_area h2{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #000000;
+}
+.customize_table .table tbody td {
+    font-size: 14px;
+}
+.customize_table .table thead th {
+    font-size: 14px;
+}
+span.activebox{
+    background: #009624;
+    color: #fff;
+    padding: 3px 8px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+button.managebox{
+    background: transparent;
+    border: #03363d solid thin;
+    color: #03363d;
+    padding: 3px 8px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+button.managebox:focus{
+    outline: none;
+}
+button.managebox:hover{
+    background: #03363d;
+    color: #ffffff;
+}
+button.manageautho{
+    background: transparent;
+    border: #e60000 solid thin;
+    color: #e60000;
+    padding: 3px 8px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+} 
+button.manageautho:focus{
+    outline: none;
+}
+button.manageautho:hover{
+    background: #e60000;
+    color: #ffffff;
+}
+
+button.manageapp,
+button.manageapp:hover{
+    background: #03363d;
+    border:#03363d solid thin;
+    color: #ffffff;
+    padding: 3px 8px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+button.manageapp:focus{
+    outline: none;
+}
+
+.supportbox span {
+    display: flex;
+    align-items: center;
+    background: #ebebeb;
+    border-radius: 50px;
+    width: 100%;
+    max-width: 300px;
+}
+.supportbox p{
+    margin-bottom: 10px;
+}
+.supportbox span .userarea {
+    margin-right: 10px;
+    background: #ccc;
+    padding: 15px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.supportbox span .userarea i{
+    font-size: 16px;
+    color: rgba(0,0,0,0.5);
+}
+.acesstable i {
+    background: #e6e6e6;
+    border-radius: 4px;
+    padding: 8px;
+    color: rgba(0,0,0,0.3);
+}
+button.manageadmin,
+button.manageadmin:hover{
+    background: transparent;
+    border:#03363d solid thin;
+    color: #03363d;
+    padding: 3px 8px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+button.manageadmin:focus{
+    outline: none;
+}
+.acesstable {
+    height: 280px;
+}
+.acesstable::-webkit-scrollbar{
+    width: 5px;
+}
+/* Track */
+.acesstable::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .acesstable::-webkit-scrollbar-thumb {
+    background: #03363d;
+  }
+  
+  /* Handle on hover */
+  .acesstable::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+#alertPopup .modal-header {
+    padding: 0;
+    border-bottom: 0;
+}
+#alertPopup .modal-header .close{
+    position: absolute;
+    right: 15px;
+    top:15px;                                                                                                           
+}
+#alertPopup .modal-footer .btn,
+#alertPopup .modal-footer .btn:hover
+{
+    background: #03363d;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    border-color: #03363d;
+    color: #ffffff;                                                                                                                                                                                                                                                                                         
+}
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info{
+    width: 50%;
+    
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_info{
+    float: left;
+}
+.dataTables_wrapper .dataTables_filter, 
+.dataTables_wrapper .dataTables_paginate{
+    float: right;
+    text-align: right;
+}
+.dataTables_wrapper .dataTables_filter [type=search],
+.dataTables_wrapper .dataTables_filter [type=search]:hover,
+.dataTables_wrapper .dataTables_filter select:focus-visible,
+.page_filter_part .btn-primary:focus
+{
+    box-shadow: none;
+    outline:none;
+}
+.dataTables_wrapper .dataTables_filter [type=search], 
+.dataTables_wrapper .dataTables_length select{
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+.dataTables_paginate .paginate_button{
+    background-color: #f5f5ff;
+    border: solid 1px #eee;
+    padding: 4px 6px;
+    color: #888;
+    line-height: 0;
+    cursor: pointer;
+}
+.dataTables_paginate .paginate_button:hover{
+    text-decoration: none;
+}
+
+.dataTables_paginate .paginate_button{
+    margin-right: 8px;
+}
+.dataTables_paginate .paginate_button.current, 
+.page_filter_part .btn-primary,
+.page_filter_part .btn-primary:not(:disabled):not(.disabled).active, 
+.page_filter_part .btn-primary:not(:disabled):not(.disabled):active, 
+.page_filter_part .show>.btn-primary.dropdown-toggle{
+    color: #fff;
+    background-color: #03363d;
+    border-color: #03363d;
+    box-sizing: none;
+}

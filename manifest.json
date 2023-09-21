@@ -1,0 +1,32 @@
+{
+  "name": "Word WandAI",
+  "author": {
+    "name": "Word WandAI",
+    "email": "contact@wordwandai.com",
+    "url": "https://www.wordwandai.com/"
+  },
+  "defaultLocale": "en",
+  "private": false,
+  "location": {
+    "support": {
+      "ticket_editor": "assets/templates/iframe.html",
+      "nav_bar": "assets/templates/admin.html"
+    }
+  },
+  "domainWhitelist": ["word-wand.creativebuffer.com"],
+  "parameters": [
+    {
+      "name": "token",
+      "type": "oauth"
+    }
+  ],
+  "oauth": {
+    "client_id": "vl4ioZHkW06DgoM0pXXi9W3hPlzqfOgn",
+    "client_secret": "PiV7cIiEwa9rwV0FceF3qpRxIk1Uuv3HhXzryJEhgLvQxh373FPWZBsHdaoHR6Gj",
+    "authorize_uri": "https://dev-nn662qqnxm3h1yhm.us.auth0.com/authorize",
+    "access_token_uri": "https://dev-nn662qqnxm3h1yhm.us.auth0.com/oauth/token",
+    "scope": "offline_access"
+  },
+  "version": "1.0.0",
+  "frameworkVersion": "2.0"
+}

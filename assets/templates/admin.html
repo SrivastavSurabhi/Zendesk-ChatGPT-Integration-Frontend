@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/account_owner.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/select.dataTables.min.css">
+    <link rel="stylesheet" href="../static/css/jquery.dataTables.min.css">
+    <script src="../static/script/jquery.min.js"></script>
+    <script src="https://static.zdassets.com/zendesk_app_framework_sdk/2.0/zaf_sdk.min.js"></script>
+    <script src="../static/script/bootstrap.min.js"></script>
+    <script src="../static/script/popper.min.js"></script>
+    <script src="../static/script/dataTable.js"></script>
+    <script src="../static/script/dataTables.responsive.min.js"></script>
+    <script src="../static/script/dataTable.select.min.js"></script>
+    <script src="../static/script/constants.js"></script>
+    <script src="../static/script/account_owner.js"></script>
+</head>
+<body>
+
+    <div class="container-div">
+    <div class="row">
+    <div class="col-2 pr-0">
+        <div class="left_tab">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-configure-tab" >Configure</a>
+            <a class="nav-link" id="v-pills-activity-tab" >Activity</a>
+            <a class="nav-link" id="v-pills-admin-tab" >Admin</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-10 pl-0">
+        <div class="right_tab">
+            <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-configure" >
+                <div class="content_area">
+                    <form id="account_owner_form">
+                    <div class="paragraph">
+                        <h6>Default Language Settings</h6>
+                        <p>Select the default language that the AI will use to generate responses for “Yes”, “No”, “Instruct” and “More Info/Questions” functions.</p>
+                    </div>
+                    <div class="parent_all col-lg-6 p-0 mb-5">
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <select class="form-control" id="language">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-check row">
+                            <input type="checkbox" value="" id="ignore_language">
+                            <label for="ignore_language">
+                                Ingore setting for “Instruct”
+                            </label>
+                        </div>
+                    </div>
+                    <div class="paragraph">
+                        <h6>Default Tone Settings</h6>
+                        <p>Select the default tone for the “Yes”, “No” and “Instruct” functions.</p>
+                    </div>
+                    <div class="parent_all col-lg-6 p-0 mb-5">
+                        <div class="row mb-3">
+                            <div class="col-8">
+                                <select class="form-control" id="yni_tone">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-check row">
+                            <input type="checkbox" value="" id="ignore_yni_tone">
+                            <label for="ignore_yni_tone">
+                                Ingore setting for “Instruct”
+                            </label>
+                        </div>
+                    </div>
+                    <div class="paragraph">
+                        <h6>Reword Settings</h6>
+                        <p>Select the default conditions you would like the customer service agent to seen when using the reword function within WordWand AI.</p>
+                        <p><em>Please note the agent will still be able to edit them.</em></p>
+                    </div>
+                    <div class="parent_all col-lg-6 p-0">
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <label for="role">Agent Role</label>
+                            </div>
+                            <div class="col-8">
+                            <select class="form-control" id="role">
+                            
+                            </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <label for="sentiment">Current Customer Sentiment</label>
+                            </div>
+                            <div class="col-8">
+                            <select class="form-control" id="sentiment">
+
+                            </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="tone">Reply Tone</label>
+                            </div>
+                            <div class="col-8">
+                                <select class="form-control" id="tone">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-4">
+                            <button type="button" class="managebox" id="submit_confg" data-toggle="modal" >Save Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-activity" >
+                <div class="content_area">
+                    <h2>Activity - Reword Request</h2>
+                </div>
+                <div class="page_filter_part">
+                    <div class="row">
+                        <div class="col-sm-12 col-lg-3 mb-2"><input type="date" id="from_date" class="form-control" placeholder="From Date" /></div>
+                        <div class="col-sm-12 col-lg-3 mb-2"><input type="date" id="to_date" class="form-control" placeholder="To Date" /></div>
+                        <div class="col-sm-12 col-lg-3"><button type="button" class="btn btn-primary"  id="filter_submit" >Apply Filter</button></div>
+                </div>
+            </div>
+                <div class="table-responsive customize_table">
+                    <table class="table table-striped" id="activity_table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Sr. no.</th>
+                                <th>Date</th>
+                                <th>Total Request</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-admin" >
+                <div class="content_area d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Admin</h2>
+                </div>
+                <div class="table-responsive customize_table">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td width="200"><strong><i class="fa fa-credit-card"></i> Subscription</strong></td>
+                                <td width="300"><span class="activebox" style="background">Active</span> </td>
+                                <td><button type="button" class="managebox"  id="oauth"><i class="fa fa-cog"></i> Manage Billing</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>  
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="acessapp">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">Access Managment</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-success p-2 users-popup" role="alert">
+                <i class="fa fa-check"></i> App is enabled for all <span></span> users
+            </div>
+            <div class="supportbox">
+                <p>App Admins</p>
+                <span>
+                    <div class="userarea"><i class="fa fa-user"></i></div>
+                    <div class="account-owner-mail"></div>
+                    <!-- support+cs@rollerdigital.com -->
+                </span>
+            </div>
+            <div class="supportbox mt-4">
+                <p>App Users</p>
+                <div class="my-1">
+                    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-search"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Filter app user">
+                    </div>
+                </div>
+
+                <div class="table-responsive acesstable mt-3">
+                    <table class="table table-bordered users_listing">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Zendesk Mode</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td><i class="fa fa-user"></i> Eric Gillespie</td>
+                                <td>ericgillespie@gmail.com</td>
+                                <td>Administrator</td>
+                                <td><button type="button" class="manageadmin">Add as app admin</button></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- ALERT Modal -->
+    <div class="modal fade" id="alertPopup" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <div class="alerts-messages p-3 text-center">
+            <div class="alertmsg-icon">
+                <i class="fa fa-check-circle fa-4x text-success"></i>
+            </div>
+            <div class="alertmsg">
+                <h3 class="text-success font-weight-bold mt-3">Successfully saved</h3>
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- Confirmation Modal-->
+    <div class="modal fade" id="confirmationPopup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alerts-messages p-3 text-center">
+                        <div class="alertmsg">
+                            <h3 class="text-success font-weight-bold mt-3">You have unsaved changes. Are you sure you want to leave?</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" id="yes_leave" class="btn managebox" data-dismiss="modal">Yes</button>
+                    <button type="button" id="no_leave" class="btn managebox" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Confirmation Modal-->
+
+
+    <div class="payment_btn m-5 d-none">
+        <h5>You are unable to access our app, as your subscription is not active. Make payment to use our app furture.</h5>
+        <button type="button" class="managebox mt-2"  id="payment_btn"><i class="fa fa-cog"></i> Manage Billing</button>
+    </div>
+    <div class="agent-area d-none">
+        <h5 class="mt-3">Agent does not have access of this page</h5>
+    </div>
+</body>
+</html>
